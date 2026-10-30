@@ -1,0 +1,29 @@
+{
+  "title": "Shopify Store Spy & Catalog Intelligence Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrls": {
+      "title": "Shopify Store URLs",
+      "type": "array",
+      "description": "List of Shopify store domains or URLs to analyze.",
+      "editor": "requestListSources",
+      "default": [
+        {
+          "url": "https://gymshark.com"
+        }
+      ],
+      "prefill": [
+        {
+          "url": "https://gymshark.com"
+        }
+      ]
+    },
+    "maxProductsPerStore": {
+      "title": "Max Products To Extract Per Store",
+      "type": "integer",
+      "description": "Maximum number of products to extract from /products.json (up to 250).",
+      "default": 50
+    }
+  }
+}
