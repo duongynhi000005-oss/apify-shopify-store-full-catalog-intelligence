@@ -1,0 +1,101 @@
+{
+  "actorSpecification": 1,
+  "name": "shopify-store-full-catalog-intelligence",
+  "title": "Shopify Store Spy, Full Product Catalog & App Stack Detector",
+  "description": "Extracts any Shopify store's complete product catalog (/products.json), pricing stats, variant stock availability, theme name, and installed Shopify Apps (Klaviyo, Judge.me, Yotpo, Loox, Recharge, Gorgias, Triple Whale) for e-commerce competitive intelligence and B2B agency prospecting.",
+  "version": "1.0",
+  "meta": {
+    "templateId": "js-start"
+  },
+  "input": "./input_schema.json",
+  "dockerfile": "./Dockerfile",
+  "output": {
+    "actorOutputSchemaVersion": 1,
+    "title": "Shopify Store Spy, Full Product Catalog & App Stack Detector Output",
+    "description": "Extracts any Shopify store's complete product catalog (/products.json), pricing stats, variant stock availability, theme name, and installed Shopify Apps (Klaviyo, Judge.me, Yotpo, Loox, Recharge, Gorgias, Triple Whale) for e-commerce competitive intelligence and B2B agency prospecting.",
+    "type": "object",
+    "properties": {
+      "results": {
+        "type": "string",
+        "title": "Enriched Dataset Items",
+        "template": "{{links.apiDefaultDatasetUrl}}/items"
+      }
+    }
+  },
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "Shopify Store Spy, Full Product Catalog & App Stack Detector Dataset",
+      "description": "Extracts any Shopify store's complete product catalog (/products.json), pricing stats, variant stock availability, theme name, and installed Shopify Apps (Klaviyo, Judge.me, Yotpo, Loox, Recharge, Gorgias, Triple Whale) for e-commerce competitive intelligence and B2B agency prospecting.",
+      "views": {
+        "overview": {
+          "title": "Overview",
+          "transformation": {
+            "fields": [
+              "domain",
+              "storeTitle",
+              "productsExtractedCount",
+              "averageProductPriceUsd",
+              "installedApps"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "domain": {
+                "label": "Store Domain",
+                "format": "text"
+              },
+              "storeTitle": {
+                "label": "Store Name",
+                "format": "text"
+              },
+              "productsExtractedCount": {
+                "label": "Products Extracted",
+                "format": "text"
+              },
+              "averageProductPriceUsd": {
+                "label": "Avg Price ($)",
+                "format": "text"
+              },
+              "installedApps": {
+                "label": "Installed Shopify Apps",
+                "format": "text"
+              }
+            }
+          }
+        }
+      },
+      "fields": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "title": "Store Domain",
+            "description": "Store Domain"
+          },
+          "storeTitle": {
+            "type": "string",
+            "title": "Store Name",
+            "description": "Store Name"
+          },
+          "productsExtractedCount": {
+            "type": "integer",
+            "title": "Products Extracted",
+            "description": "Products Extracted"
+          },
+          "averageProductPriceUsd": {
+            "type": "number",
+            "title": "Avg Price ($)",
+            "description": "Avg Price ($)"
+          },
+          "installedApps": {
+            "type": "array",
+            "title": "Installed Shopify Apps",
+            "description": "Installed Shopify Apps"
+          }
+        }
+      }
+    }
+  }
+}
