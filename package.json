@@ -1,0 +1,14 @@
+{
+  "name": "shopify-store-full-catalog-intelligence",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Extracts any Shopify store's complete product catalog (/products.json), pricing stats, variant stock availability, theme name, and installed Shopify Apps (Klaviyo, Judge.me, Yotpo, Loox, Recharge, Gorgias, Triple Whale) for e-commerce competitive intelligence and B2B agency prospecting.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "apify": "^3.2.0",
+    "cheerio": "^1.0.0"
+  }
+}
